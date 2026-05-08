@@ -1,0 +1,339 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1a1714;
+    color: #e8e0d4;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Film Grain Overlay */
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Typography */
+p {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+}
+
+.handwritten {
+    font-family: 'Caveat', cursive;
+}
+
+/* Hidden Utility Class */
+.hidden {
+    display: none !important;
+}
+
+/* Intro Screen */
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1714;
+    z-index: 50;
+    transition: opacity 1s ease;
+}
+
+.intro-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 0 20px;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #e8e0d4;
+}
+
+.intro-list {
+    list-style-type: none;
+    margin-bottom: 3rem;
+}
+
+.intro-list li {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: #d4c8b8;
+    font-weight: 300;
+}
+
+.continue-btn {
+    background: transparent;
+    border: 1px solid #d4c8b8;
+    color: #d4c8b8;
+    padding: 10px 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+.continue-btn:hover {
+    background-color: rgba(212, 200, 184, 0.1);
+}
+
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 1px solid #d4c8b8;
+    color: #d4c8b8;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 60;
+}
+
+.music-toggle:hover {
+    background-color: rgba(212, 200, 184, 0.1);
+}
+
+.music-toggle.playing {
+    border-color: #e8e0d4;
+    color: #e8e0d4;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Letter Sections */
+.letter-section {
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.letter-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.photos-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.photo-frame {
+    flex: 1;
+    max-width: 48%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    filter: contrast(0.9) brightness(0.95);
+    transition: filter 0.3s ease;
+}
+
+.photo-frame:hover img {
+    filter: contrast(1) brightness(1);
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(26, 23, 20, 0.7);
+    padding: 3px 8px;
+    font-family: 'Caveat', cursive;
+    font-size: 0.9rem;
+    color: #e8e0d4;
+    border-radius: 3px;
+}
+
+.letter-paragraph {
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Prom Section */
+.prom-section {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 40px 0;
+}
+
+.prom-question {
+    margin-bottom: 50px;
+}
+
+.prom-question p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.prom-highlight {
+    font-size: 1.8rem !important;
+    font-weight: 400;
+    color: #f5efe6;
+}
+
+.prom-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.prom-btn {
+    background: transparent;
+    border: 1px solid #d4c8b8;
+    color: #d4c8b8;
+    padding: 12px 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+.prom-btn:hover {
+    background-color: rgba(212, 200, 184, 0.1);
+}
+
+.yes-btn {
+    transition: all 0.5s ease;
+}
+
+.no-response {
+    margin-top: 30px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: #d4c8b8;
+}
+
+/* Final Screen */
+.final-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1714;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.final-screen.show {
+    opacity: 1;
+}
+
+.final-content {
+    text-align: center;
+}
+
+.final-text {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #f5efe6;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .photos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .photo-frame {
+        max-width: 100%;
+    }
+    
+    .photo-frame img {
+        height: 250px;
+    }
+    
+    .prom-highlight {
+        font-size: 1.5rem !important;
+    }
+    
+    .prom-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .prom-btn {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-text {
+        font-size: 1rem;
+    }
+    
+    .intro-list li {
+        font-size: 0.9rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    .photo-frame img {
+        height: 200px;
+    }
+    
+    .prom-highlight {
+        font-size: 1.3rem !important;
+    }
+    
+    .final-text {
+        font-size: 1.5rem;
+    }
+}
