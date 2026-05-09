@@ -34,6 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Continue Button Click
     continueBtn.addEventListener('click', function() {
+
+        ambientMusic.play().then(function() {
+            musicToggle.classList.add('playing');
+        }).catch(function(error) {
+            console.log("Audio autoplay failed:", error);
+        });
+        
         introScreen.style.opacity = '0';
         
         setTimeout(function() {
