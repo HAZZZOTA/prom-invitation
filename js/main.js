@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let yesBtnSize = 1;
     
     // Continue Button Click
-    continueBtn.addEventListener('click', function() {
+    continueBtn.addEventListener('click', async function() {
 
         try {
             ambientMusic.volume = 0.3;
