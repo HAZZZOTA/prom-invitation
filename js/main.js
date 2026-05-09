@@ -35,11 +35,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Continue Button Click
     continueBtn.addEventListener('click', function() {
 
-        ambientMusic.play().then(function() {
+        try {
+            ambientMusic.volume = 0.3;
+            await ambientMusic.play();
+
             musicToggle.classList.add('playing');
-        }).catch(function(error) {
-            console.log("Audio autoplay failed:", error);
-        });
+        } catch (err) {
+            console.log("Mobile autoplay blocked:", err);
+        }
         
         introScreen.style.opacity = '0';
         
